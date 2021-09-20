@@ -1,1 +1,0 @@
-# bisontes-industrial-parks
