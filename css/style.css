@@ -10,8 +10,9 @@ body {
     background-color: #ebe3db;
 }
 
+
 .content {
-    width: 70%;
+    width: 85%;
 }
 
 .nav-bar {
@@ -47,21 +48,110 @@ nav ul li {
 
 .information-container {
     margin-top: 20px;
+    padding-bottom: 20px;
+    border: solid;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px #cb9c64, 0 -5px 20px #ebe3db;
+}
+
+.information-container-flip-cards {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border: solid;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px #cb9c64, 0 -5px 20px #ebe3db;
+}
+
+.information-container:hover {
+    box-shadow: 0 5px 30px #cb9c64, 0 -5px 30px #ebe3db;
 }
 
 .information-container p {
     text-align: justify;
 }
 
-#image-industrial-park {
-    width: 450px;
-    border-radius: 5px;
+.rounded-image {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0 5px 10px #cb9c64, 0 -5px 10px #ebe3db;
 }
 
 .image-text-container {
     display: flex;
     justify-content: space-evenly;
 }
+
+.text-container {
+    width: 520px;
+    padding: 10px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#texto-historia {
+    width: 700px;
+}
+
+.container-cards {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*Flipping card*/
+.box {
+    width: 400px;
+    height: 400px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.box .front,
+.box .back {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: #ebe3db;
+    backface-visibility: hidden; cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px #cb9c64, 0 -5px 15px #ebe3db;
+    transition: transform .4s;
+}
+
+.box .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    transform: perspective(800px) rotateX(-180deg);
+}
+
+.box .back .p {
+    margin: 10px 20px;
+    text-align: center;
+}
+
+.box .front img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+}
+
+.box:hover .front {
+    transform: perspective(800px) rotateX(180deg);
+}
+
+.box:hover .back {
+    border-radius: 50%;
+    transform: perspective(800px) rotateX(0);
+}
+
 
 /* Colores
 CSS HEX 
