@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #6c441b;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: #ebe3db;
+        }
+
+        #div__bisontes-logo {
+            display: flex;
+            justify-content: center;
+            background-color: #ebe3db;
+        }
+
+        #bisontes-logo {
+            width: auto;
+            margin: 0px auto 0px auto;
+        }
+
+        .nav-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 10px 30px;
+            font-weight: bold;
+        }
+
+        .registro {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 400px;
+            height: 450px;
+            background: #ebe3db;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            padding: 0 15px;
+        }
+
+        .intro-text p {
+            margin: 5px 0;
+            font-size: 13px;
+        }
+
+        .intro-text p a {
+            color: #cb9c64;
+        }
+
+        form {
+            height: 330px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        form input {
+            padding: 12px 7px;
+            outline: none;
+            border: 1px solid #6c441b;
+        }
+
+        form input:focus {
+            border-color: #cb9c64;
+        }
+
+        .check-box {
+            display: flex;
+        }
+
+        .check-box label {
+            font-size: 12px;
+            padding: 0 5px;
+        }
+
+        #envia {
+            border: none;
+            outline: none;
+            padding: 11px 0;
+            background: #6c441b;
+            color: #ebe3db;
+            font-size: 18px;
+            box-shadow: 0 7px 15px rgba(22, 5, 107, .3);
+        }
+
+        .check-box label a {
+            color: #cb9c64;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <header class=" header__logo-and-navbar">
+            <div id="div__bisontes-logo">
+                <img src="imagenes/logo2.png" alt="Bisontes Industrial Park Logo" id="bisontes-logo">
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="informacion.html">Información</a></li>
+                    <li><a href="registrate.html">Regístrate</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="registro">
+            <div class="container">
+                <div class="intro-text">
+                    <h2>Regístrate</h2>
+                    <p>¿Ya tienes una cuenta? <a href="inicioSesion.html">Inicia sesión</a></p>
+                </div>
+                <form action="datos.php" method="post">
+                    <input type="text" placeholder="Nombre de Empresa" required name="nombreEmp" id="nombreEmp"
+                        autocomplete="on">
+                    <input autocomplete="on" type="tel" name="telefono" id="telefono" placeholder="Teléfono" required>
+                    <input type="text" name="industria" id="industria"
+                        placeholder="Industria: e.g. Energética, Manufacturera, Alimenticia" required>
+                    <input autocomplete="on" type="email" name="correo" id="correo" placeholder="Correo" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <div class="check-box">
+                        <input type="checkbox" id="check">
+                        <label for="check">Estoy de acuerdo con los <a href="#">Términos y Condiciones</a></label>
+                    </div>
+                    <input type="submit" name="envia" id="envia" value="Regístrate">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer></footer>
+</body>
+
+</html>
