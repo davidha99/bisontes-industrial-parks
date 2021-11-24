@@ -24,12 +24,30 @@
 
 <?php
 
-    include('php/consultaBD.php');
+include('php/consultaBD.php');
+
+$consulta = "SELECT * from cliente";
+consultaBD($consulta);
+$encontrado=0;
+while($mostrar=mysqli_fetch_array($resultado)){
+
+    if($mostrar['telefono']==$_POST['telefono']){
+
+    $encontrado=1;
+
+    }
+
+}
+
+if ($encontrado==0){
+
 	$nombreEmp=$_POST['nombreEmp'];
 	$telefono=$_POST['telefono'];
 	$correo=$_POST['correo'];
 	$industria=$_POST['industria'];
 	
+
+
 	$consulta = "INSERT INTO cliente (empresaNom, telefono, correo, industria) VALUES ('$nombreEmp','$telefono','$correo','$industria')";
     
 	if(ConsultaBD($consulta)){
@@ -41,6 +59,11 @@
 	}
 	else
 		echo "Error al guardar los datos";
+}
+else
+{
+  echo "Error, ya hay un contacto registrado con tus datos";
+}
 
 ?>
 
