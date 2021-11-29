@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <style>
         html {
             scroll-behavior: smooth;
@@ -106,6 +108,43 @@
         .check-box label a {
             color: #cb9c64;
         }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+
+        /*International phone*/
+
+        .alert {
+            padding: 15px;
+            margin-top: 10px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .alert-info {
+            border-color: #bce8f1;
+            color: #31708f;
+            background-color: #d9edf7;
+        }
+
+        .alert-error {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
     </style>
 </head>
 
@@ -134,21 +173,37 @@
                 <form action="datos.php" method="post">
                     <input type="text" placeholder="Nombre de Empresa" required name="nombreEmp" id="nombreEmp"
                         autocomplete="on">
-                    <input autocomplete="on" type="tel" name="telefono" id="telefono" placeholder="Teléfono" required>
                     <input type="text" name="industria" id="industria"
                         placeholder="Industria: e.g. Energética, Manufacturera, Alimenticia" required>
                     <input autocomplete="on" type="email" name="correo" id="correo" placeholder="Correo" required>
+                    <input type="tel" name="telefono" id="phone" required>
                     <div class="check-box">
                         <input type="checkbox" id="check">
                         <label for="check">Estoy de acuerdo con los <a href="#">Términos y Condiciones</a></label>
                     </div>
                     <input type="submit" name="envia" id="envia" value="Regístrate">
                 </form>
+                <div class="alert alert-info" style="display: none;"></div>
             </div>
         </div>
     </div>
-
-    <footer></footer>
 </body>
+<script>
+    const phoneInputField = document.querySelector('#phone');
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+    const info = document.querySelector(".alert-info");
+
+    function process(event) {
+        event.preventDefault();
+
+        const phoneNumber = phoneInput.getNumber();
+
+        info.style.display = "";
+        info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+    }
+</script>
 
 </html>
