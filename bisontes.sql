@@ -33,18 +33,6 @@ CREATE TABLE `cliente` (
   `correo` varchar(80) NOT NULL,
   `telefono` int(11) NOT NULL,
   `industria` varchar(40) NOT NULL,
-  `dptoID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `comunicar`
---
-
-CREATE TABLE `comunicar` (
-  `dptoID` int(11) NOT NULL,
-  `naveID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -95,15 +83,7 @@ CREATE TABLE `nave` (
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`clienteID`),
-  ADD KEY `dptoID` (`dptoID`);
-
---
--- Indices de la tabla `comunicar`
---
-ALTER TABLE `comunicar`
-  ADD PRIMARY KEY (`dptoID`,`naveID`),
-  ADD KEY `naveID` (`naveID`);
+  ADD PRIMARY KEY (`clienteID`);
 
 --
 -- Indices de la tabla `departamento`
@@ -157,21 +137,6 @@ ALTER TABLE `nave`
   MODIFY `naveID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`dptoID`) REFERENCES `departamento` (`dptoID`);
-
---
--- Filtros para la tabla `comunicar`
---
-ALTER TABLE `comunicar`
-  ADD CONSTRAINT `comunicar_ibfk_1` FOREIGN KEY (`dptoID`) REFERENCES `departamento` (`dptoID`),
-  ADD CONSTRAINT `comunicar_ibfk_2` FOREIGN KEY (`naveID`) REFERENCES `nave` (`naveID`);
 
 --
 -- Filtros para la tabla `departamento`
