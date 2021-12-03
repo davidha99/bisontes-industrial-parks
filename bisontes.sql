@@ -32,7 +32,7 @@ CREATE TABLE `cliente` (
   `empresaNom` varchar(50) NOT NULL,
   `correo` varchar(80) NOT NULL,
   `telefono` int(11) NOT NULL,
-  `industria` varchar(40) NOT NULL,
+  `industria` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
